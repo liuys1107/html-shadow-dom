@@ -1,0 +1,6 @@
+# webstrom
+.idea
+/.vscode
+.DS_Store
+npm-debug.log*
+yarn-error.log*

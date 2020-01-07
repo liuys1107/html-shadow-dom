@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <template id="lys">
+        <style>
+            h1{
+                color: cyan;
+                text-align: center;
+            }
+        </style>
+        <h1 id="info"></h1>
+    </template>
+    <script>
+        // 第一步
+        var indexDoc = document; // 代表的是index.html的文档的对象;
+
+        // currentScript获取正在运行的script标签对象
+        // ownerDocument 我们的文档
+        var currentDoc = indexDoc.currentScript.ownerDocument;
+        var tmp = currentDoc.getElementById('lys');
+        // 第二步 注册元素
+        // 继承html家族
+
+        var lysProto = Object.create(HTMLElement.prototype);
+        // 第三步
+        // lysProto注册，他有个回调相当于 ajax onreadystatechange
+        // 如果有元素注册成功就会调用执行方法
+        lysProto.createdCallback = function () {
+            // 创建一个 shadow Dom
+            var root = this.createShadowRoot();
+            root.appendChild(indexDoc.importNode(tmp.content, true));
+            root.getElementById('info').innerHTML = this.getAttribute("message");
+            // this.innerHTML = tmp.innerHTML;
+        };
+
+        indexDoc.registerElement("my-lys", {
+            prototype: lysProto,
+        })
+
+    </script>
+</body>
+</html>
