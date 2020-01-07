@@ -1,7 +1,7 @@
-###Web Component
+### Web Component
 >Shadow DOM是HTML的一个规范 ，它允许浏览器开发者封装自己的HTML标签、CSS样式和特定的javascript代码，同时也可以让开发人员创建类似<video>这样的自定义一级标签，创建这些新标签内容和相关的的API被称为Web Component。
 
-####主界面
+#### 主界面
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@
 </body>
 </html>
 ```
-####Shadow DOM组件
+#### Shadow DOM组件
 ```html
 <!DOCTYPE html>
 <html lang="en">
